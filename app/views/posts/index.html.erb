@@ -1,0 +1,14 @@
+<h1>Welcome to TheDenied.com</h1>
+
+<div class="cards">
+<% @posts.each do |post|%>
+  <div class="card">
+    <p><%= post.content %></p>
+    <%= form_for @like do |f| %>
+      <%=f.hidden_field :post_id, value: post.id %>
+      <%=f.submit "👍  #{post.like_count}"%>
+    <% end %>
+  </div>
+
+<% end %>
+</div>
